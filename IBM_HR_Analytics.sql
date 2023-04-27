@@ -91,4 +91,13 @@ SELECT JobRole, AVG(YearsInCurrentRole) AS avg_years_in_role
 FROM IBM_HR_Analytics
 GROUP BY JobRole;
 
+--19. Find 3rd highest salary of an employee
+SELECT TOP 1 MonthlyIncome
+FROM (
+    SELECT DISTINCT TOP 3 MonthlyIncome
+    FROM attrition_data
+    ORDER BY MonthlyIncome DESC
+) AS top_3
+ORDER BY MonthlyIncome ASC;
+
 
